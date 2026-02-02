@@ -8,7 +8,7 @@ is_netmhcpan_installed <- function(
   netmhcpan_folder_name = get_default_netmhcpan_folder(),
   verbose = FALSE
 ) {
-  assertive::is_if_condition(verbose)
+  if (!is.logical(verbose)) stop("verbose must be TRUE or FALSE"))
   is_installed <- FALSE
   tryCatch({
     netmhcpan::check_netmhcpan_installation(
